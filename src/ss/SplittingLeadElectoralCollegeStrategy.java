@@ -9,7 +9,10 @@ public class SplittingLeadElectoralCollegeStrategy implements ElectoralCollegeSt
 
         // Checking if the state is "too close to call"
         if (democratLead == republicanLead) {
-            return "Too close to call - Split Votes";
+        	 int totalVotes = state.getRepublicanVotes() + state.getDemocratVotes();
+        	 int electoralVotesDemocrat = totalVotes/2;
+             int electoralVotesRepublican = totalVotes/2;
+             return electoralVotesDemocrat + " " + electoralVotesRepublican;
         }
 
         // Determining the winner based on the lead
@@ -27,7 +30,7 @@ public class SplittingLeadElectoralCollegeStrategy implements ElectoralCollegeSt
             electoralVotesRepublican = state.getElectoralVotes() / 2 + state.getElectoralVotes() % 2;
         }
 
-        return electoralVotesDemocrat + " Electoral Votes (" + winner + ") - " +
-               electoralVotesRepublican + " Electoral Votes (Republican)";
+        return electoralVotesDemocrat + " "  +
+               electoralVotesRepublican ;
     }
 }

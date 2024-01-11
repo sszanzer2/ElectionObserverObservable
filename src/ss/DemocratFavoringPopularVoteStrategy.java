@@ -3,16 +3,16 @@ package ss;
 public class DemocratFavoringPopularVoteStrategy implements PopularVoteStrategy {
     @Override
     public String report(State state) {
-        // Ignoring the state with the most Republican votes
+        // Ignore the state with the most Republican votes
         if (state.getRepublicanVotes() == maxRepublicanVotes()) {
-            return "Ignored";
+            return null; // Return null to indicate that the state should be ignored
         } else {
-            return state.getDemocratVotes() + " (Democrat) - " + state.getRepublicanVotes() + " (Republican)";
+            return state.getDemocratVotes() + " " + state.getRepublicanVotes();
         }
     }
 
     private int maxRepublicanVotes() {
         // Calculate the state with the most Republican votes (fake data for illustration)
-        return 100;
+        return 58;
     }
 }

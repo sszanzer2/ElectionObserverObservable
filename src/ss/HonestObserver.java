@@ -21,18 +21,44 @@ public class HonestObserver implements ElectionObserver {
 
             int totalRepublicanPopularVotes = 0;
             int totalDemocratPopularVotes = 0;
-            int totalElectoralVotes = 0;
+            int RepublicanElectoralVotes = 0;
+            int DemocratElectoralVotes = 0;
 
-            System.out.println("Honest Observer:");
+            System.out.println("Observer 1:");
 
             for (State state : states) {
-                totalRepublicanPopularVotes += state.getRepublicanVotes();
-                totalDemocratPopularVotes += state.getDemocratVotes();
-                totalElectoralVotes += state.getElectoralVotes();
+                // Apply the popular vote strategy to each state
+                String popularVoteReport = popularVoteStrategy.report(state);
+
+                // Parse the votes from the report
+                String[] voteValues = popularVoteReport.split(" ");
+                int democratVotes = Integer.parseInt(voteValues[0]);
+                int republicanVotes = Integer.parseInt(voteValues[1]);
+
+                // Add votes to the totals
+                totalRepublicanPopularVotes += republicanVotes;
+                totalDemocratPopularVotes += democratVotes;
+
+                // Apply the electoral college strategy
+                String electoralCollegeReport = electoralCollegeStrategy.report(state);
+
+                // Parse the Electoral Votes from the report
+                int electoralVotes = Integer.parseInt(electoralCollegeReport.split(" ")[0]);
+
+             // Assign electoral votes to the respective parties based on a condition
+                int republicanEVotes = state.getRepublicanVotes(); // Replace with the actual method you have
+                int democratEVotes = state.getDemocratVotes();     // Replace with the actual method you have
+
+                if (republicanEVotes > democratEVotes) {
+                    RepublicanElectoralVotes += state.getElectoralVotes();
+                } else if (democratEVotes > republicanEVotes) {
+                    DemocratElectoralVotes += state.getElectoralVotes();
+                }
+
             }
 
             System.out.println("Total Republican: " + totalRepublicanPopularVotes + " popular votes, Total Democrat: " + totalDemocratPopularVotes + " popular votes");
-            System.out.println("Total Electoral Votes: " + totalElectoralVotes);
+            System.out.println("Republican ElectoralVotes: " + RepublicanElectoralVotes + " Democrat ElectoralVotes: " + DemocratElectoralVotes);
             System.out.println("Presently the predicted winner is " + (totalRepublicanPopularVotes > totalDemocratPopularVotes ? "the Republican candidate" : "the Democrat candidate"));
             System.out.println("Legal Notice: All reports are purely observational and not legally binding.");
             System.out.println("Current Time: " + new Date());
