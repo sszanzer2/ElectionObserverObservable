@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author shosh
+ *
+ */
+module ElectionObserverObservable {
+}

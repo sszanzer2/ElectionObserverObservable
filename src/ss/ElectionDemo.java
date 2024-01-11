@@ -4,12 +4,12 @@ import java.util.*;
 
 public class ElectionDemo {
     public static void main(String[] args) {
-        Map<String, State> states = new HashMap<>();
-        states.put("New York", new State("New York"));
-        states.put("New Jersey", new State("New Jersey"));
-        states.put("Pennsylvania", new State("Pennsylvania"));
-        states.put("Connecticut", new State("Connecticut"));
-        states.put("Maryland", new State("Maryland"));
+        ArrayList<State> states = new ArrayList<>();
+        states.add( new State("New York"));
+        states.add( new State("New Jersey"));
+        states.add(new State("Pennsylvania"));
+        states.add( new State("Connecticut"));
+        states.add(new State("Maryland"));
 
         ElectionData electionData = new ElectionData(states);
 
@@ -39,21 +39,11 @@ public class ElectionDemo {
         electionData.addObserver(democrat2PercentObserver);
         electionData.addObserver(misleadingElectoralCollegeObserver);
         electionData.addObserver(honestObserver);
-        
-        State currentState = states.get("New York");
-        System.out.println("State: " + currentState.getName());
-        electionData.updateResults("New York", 50, 45, 10);
-        currentState = states.get("New Jersey");
-        System.out.println("State: " + currentState.getName());
-        electionData.updateResults("New Jersey", 45, 50, 15);
-        currentState = states.get("Pennsylvania");
-        System.out.println("State: " + currentState.getName());
-        electionData.updateResults("Pennsylvania", 55, 45, 8);
-        currentState = states.get("Connecticut");
-        System.out.println("State: " + currentState.getName());
+                
+        electionData.updateResults("New York", 50, 45, 10);        
+        electionData.updateResults("New Jersey", 45, 50, 15);        
+        electionData.updateResults("Pennsylvania", 55, 45, 8);        
         electionData.updateResults("Connecticut", 48, 52, 12);
-        currentState = states.get("Maryland");
-        System.out.println("State: " + currentState.getName());
         electionData.updateResults("Maryland", 40, 58, 20);
     }
 }
