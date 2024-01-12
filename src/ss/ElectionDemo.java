@@ -23,7 +23,7 @@ public class ElectionDemo {
         );
         ElectionObserver democrat2PercentObserver = new DemocratFavoring2PercentObserver(
                 new DemocratFavoring2PercentPopularVoteStrategy(),
-                new DemocratFavoringElectoralCollegeStrategy()
+                new HonestElectoralCollegeStrategy()
         );
         ElectionObserver misleadingElectoralCollegeObserver = new MisleadingElectoralCollegeObserver(
                 new RepublicanFavoringPopularVoteStrategy(),
@@ -53,14 +53,14 @@ public class ElectionDemo {
         electionData.updateResults("New York", 48, 47, 10);
         electionData.updateResults("New Jersey", 55, 50, 15);
         electionData.updateResults("Pennsylvania", 52, 40, 8);
-        electionData.updateResults("Connecticut", 43, 57, 12);
+        electionData.updateResults("Connecticut", 43, 58, 12);
         electionData.updateResults("Maryland", 49, 51, 20);
 
         System.out.println("Test 3: ");
         electionData.updateResults("New York", 60, 48, 10);
         electionData.updateResults("New Jersey", 56, 53, 15);
         electionData.updateResults("Pennsylvania", 42, 55, 8);
-        electionData.updateResults("Connecticut", 59, 54, 12);
+        electionData.updateResults("Connecticut", 54, 58, 12);
         electionData.updateResults("Maryland", 42, 49, 20);
     }
 }

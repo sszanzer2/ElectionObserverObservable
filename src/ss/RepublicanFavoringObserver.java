@@ -52,14 +52,14 @@ public class RepublicanFavoringObserver implements ElectionObserver {
                     DemocratElectoralVotes += electoralVotes;
                 }
             }
+        }
 
             // Display totals only at the end
             System.out.println("Total Republican: " + totalRepublicanPopularVotes + " popular votes, Total Democrat: " + totalDemocratPopularVotes + " popular votes");
-            System.out.println("Republican ElectoralVotes: " + RepublicanElectoralVotes + " Democrat ElectoralVotes: " + DemocratElectoralVotes);
+            System.out.println("Republican ElectoralVotes: " + RepublicanElectoralVotes + ", Democrat ElectoralVotes: " + DemocratElectoralVotes);
             System.out.println("Presently the predicted winner is " + (totalRepublicanPopularVotes > totalDemocratPopularVotes ? "the Republican candidate" : "the Democrat candidate"));
-            System.out.println("Legal Notice: All reports are purely observational and not legally binding.");
-            System.out.println("Current Time: " + new Date());
-            System.out.println();
-        }
+            // Print the legal notice
+            printLegalNoticeAndTime();
+        
     }
 }

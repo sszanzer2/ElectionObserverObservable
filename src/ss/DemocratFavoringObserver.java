@@ -56,14 +56,13 @@ public class DemocratFavoringObserver implements ElectionObserver {
                 }
             }
         }
-        	//winner based on electoral or popular?
-            System.out.println("Observer 4:");
-            System.out.println("Total Republican: " + totalRepublicanPopularVotes + " popular votes, Total Democrat: " + totalDemocratPopularVotes + " popular votes");
-            System.out.println("Republican ElectoralVotes: " + RepublicanElectoralVotes + " Democrat ElectoralVotes: " + DemocratElectoralVotes);
-            System.out.println("Presently the predicted winner is " + (totalRepublicanPopularVotes > totalDemocratPopularVotes ? "the Republican candidate" : "the Democrat candidate"));
-            System.out.println("Legal Notice: All reports are purely observational and not legally binding.");
-            System.out.println("Current Time: " + new Date());
-            System.out.println();
+    	//winner based on electoral or popular?
+        System.out.println("Observer 4:");
+        System.out.println("Total Republican: " + totalRepublicanPopularVotes + " popular votes, Total Democrat: " + totalDemocratPopularVotes + " popular votes");
+        System.out.println("Republican ElectoralVotes: " + RepublicanElectoralVotes + ", Democrat ElectoralVotes: " + DemocratElectoralVotes);
+        System.out.println("Presently the predicted winner is " + (totalRepublicanPopularVotes > totalDemocratPopularVotes ? "the Republican candidate" : "the Democrat candidate"));
+        // Print the legal notice
+        printLegalNoticeAndTime();
         
     }
 }

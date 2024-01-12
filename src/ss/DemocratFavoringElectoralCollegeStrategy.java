@@ -13,6 +13,6 @@ public class DemocratFavoringElectoralCollegeStrategy implements ElectoralColleg
 
     private int maxElectoralVotes() {
         // Calculate the state with the most electoral votes (fake data for illustration)
-        return 55;
+        return 15;
     }
 }

@@ -16,15 +16,13 @@ public class HonestObserver implements ElectionObserver {
     // Update method called when the state changes. Prints honest reports of popular vote and electoral college.
     @Override
     public void update(Observable o, Object arg) {
-        if (arg instanceof ArrayList<?>) {
+    	 int totalRepublicanPopularVotes = 0;
+         int totalDemocratPopularVotes = 0;
+         int RepublicanElectoralVotes = 0;
+         int DemocratElectoralVotes = 0;
+         
+         if (arg instanceof ArrayList<?>) {
             ArrayList<State> states = (ArrayList<State>) arg;
-
-            int totalRepublicanPopularVotes = 0;
-            int totalDemocratPopularVotes = 0;
-            int RepublicanElectoralVotes = 0;
-            int DemocratElectoralVotes = 0;
-
-            System.out.println("Observer 1:");
 
             for (State state : states) {
                 // Apply the popular vote strategy to each state
@@ -56,13 +54,14 @@ public class HonestObserver implements ElectionObserver {
                 }
 
             }
-
-            System.out.println("Total Republican: " + totalRepublicanPopularVotes + " popular votes, Total Democrat: " + totalDemocratPopularVotes + " popular votes");
-            System.out.println("Republican ElectoralVotes: " + RepublicanElectoralVotes + " Democrat ElectoralVotes: " + DemocratElectoralVotes);
-            System.out.println("Presently the predicted winner is " + (totalRepublicanPopularVotes > totalDemocratPopularVotes ? "the Republican candidate" : "the Democrat candidate"));
-            System.out.println("Legal Notice: All reports are purely observational and not legally binding.");
-            System.out.println("Current Time: " + new Date());
-            System.out.println();
         }
+         
+        System.out.println("Observer 1:");
+        System.out.println("Total Republican: " + totalRepublicanPopularVotes + " popular votes, Total Democrat: " + totalDemocratPopularVotes + " popular votes");
+        System.out.println("Republican ElectoralVotes: " + RepublicanElectoralVotes + ", Democrat ElectoralVotes: " + DemocratElectoralVotes);
+        System.out.println("Presently the predicted winner is " + (totalRepublicanPopularVotes > totalDemocratPopularVotes ? "the Republican candidate" : "the Democrat candidate"));
+        // Print the legal notice
+        printLegalNoticeAndTime();
+    
     }
 }
