@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class ElectionDemo {
     public static void main(String[] args) {
         ArrayList<State> states = new ArrayList<>();
-        states.add(new State("New York"));
-        states.add(new State("New Jersey"));
-        states.add(new State("Pennsylvania"));
-        states.add(new State("Connecticut"));
-        states.add(new State("Maryland"));
+        states.add(new State("New York", 50, 45, 10));
+        states.add(new State("New Jersey", 45, 50, 15));
+        states.add(new State("Pennsylvania", 55, 45, 8));
+        states.add(new State("Connecticut", 48, 52, 12));
+        states.add(new State("Maryland", 40, 58, 20));
 
         ElectionData electionData = new ElectionData(states);
 
@@ -40,13 +40,15 @@ public class ElectionDemo {
         electionData.addObserver(misleadingElectoralCollegeObserver);
         electionData.addObserver(honestObserver);
 
-        // Update results for each state
+        System.out.println("Test 1: ");
+        // Initial update results for each state
         electionData.updateResults("New York", 50, 45, 10);
         electionData.updateResults("New Jersey", 45, 50, 15);
         electionData.updateResults("Pennsylvania", 55, 45, 8);
         electionData.updateResults("Connecticut", 48, 52, 12);
         electionData.updateResults("Maryland", 40, 58, 20);
 
+        System.out.println("Test 2: ");
         // Additional updates to test
         electionData.updateResults("New York", 48, 47, 10);
         electionData.updateResults("New Jersey", 55, 50, 15);
@@ -54,12 +56,11 @@ public class ElectionDemo {
         electionData.updateResults("Connecticut", 43, 57, 12);
         electionData.updateResults("Maryland", 49, 51, 20);
 
+        System.out.println("Test 3: ");
         electionData.updateResults("New York", 60, 48, 10);
         electionData.updateResults("New Jersey", 56, 53, 15);
         electionData.updateResults("Pennsylvania", 42, 55, 8);
         electionData.updateResults("Connecticut", 59, 54, 12);
         electionData.updateResults("Maryland", 42, 49, 20);
-
-       
     }
 }

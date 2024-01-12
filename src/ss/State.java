@@ -6,8 +6,11 @@ public class State {
     private int republicanVotes;
     private int electoralVotes;
 
-    public State(String name) {
+    public State(String name, int democratVotes,int republicanVotes,int electoralVotes) {
         this.name = name;
+        this.democratVotes=democratVotes;
+        this.republicanVotes=republicanVotes;
+        this.electoralVotes=electoralVotes;
     }
 
     public void setVotes(int democratVotes, int republicanVotes, int electoralVotes) {

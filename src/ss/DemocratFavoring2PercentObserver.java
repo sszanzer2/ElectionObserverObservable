@@ -48,8 +48,10 @@ public class DemocratFavoring2PercentObserver implements ElectionObserver {
 
                 if (electoralVoteValues.length > 1 && electoralVoteValues[1].equals("(Democrat)")) {
                     DemocratElectoralVotes += electoralVotes;
-                } else {
-                    RepublicanElectoralVotes += electoralVotes;
+                } else if(state.getDemocratVotes() > state.getRepublicanVotes()) {
+                	 DemocratElectoralVotes += electoralVotes;
+                }else {
+                	RepublicanElectoralVotes += electoralVotes;
                 }
             }
 
